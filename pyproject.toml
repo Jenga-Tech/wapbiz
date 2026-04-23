@@ -1,0 +1,32 @@
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+exclude = [
+  ".git",
+  ".ruff_cache",
+  ".pytest_cache",
+  ".venv",
+  "venv",
+  "alembic/versions",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N", "ASYNC", "C4", "SIM"]
+ignore = ["B008"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+asyncio_mode = "auto"
+testpaths = ["app/tests"]
+
+[tool.coverage.run]
+source = ["app"]
+
+[tool.coverage.report]
+omit = ["app/tests/*"]
+show_missing = true
+skip_covered = true
